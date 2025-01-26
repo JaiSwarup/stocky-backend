@@ -2,6 +2,7 @@ package com.jaiswarup.stocky.controller;
 
 import com.jaiswarup.stocky.model.Stock;
 import com.jaiswarup.stocky.service.StockService;
+import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,14 +10,10 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
-//@CrossOrigin(origins = "http://localhost:5173")
+@AllArgsConstructor
 @RequestMapping("/api/stocks")
 public class StockController {
     private final StockService stockService;
-
-    public StockController(StockService stockService) {
-        this.stockService = stockService;
-    }
 
     @PostMapping
     public ResponseEntity<Stock> addStock(@RequestBody Stock stock) {

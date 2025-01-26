@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Getter
 @Setter
@@ -15,7 +16,7 @@ import java.math.BigDecimal;
 public class Stock {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long stock_id;
 
     @Column(nullable = false)
     private String stockName;
@@ -28,6 +29,9 @@ public class Stock {
 
     @Column(nullable = false)
     private BigDecimal buyPrice;
+
+    @ManyToMany(mappedBy = "stocks")
+    private List<MyUser> users;
 
     // Getters and Setters
 }
